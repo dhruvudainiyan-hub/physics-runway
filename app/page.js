@@ -1,22 +1,56 @@
-import ImageBox from "@/components/ImageBox";
+import Hero from "@/components/Hero";
+import SectionHeading from "@/components/SectionHeading";
+import CourseCard from "@/components/CourseCard";
+import CategorySection from "@/components/CategorySection";
+import SubjectCards from "@/components/SubjectCards";
+import Reveal from "@/components/Reveal";
+import { categories, courses, popularIds, stats } from "@/lib/siteData";
 
 export default function Home() {
+  const popular = popularIds.map((id) => courses.find((c) => c.id === id)).filter(Boolean);
+
   return (
     <main>
-      <section className="bg-gradient-to-br from-navy-900 via-navy-800 to-brand-700 py-16 text-white">
-        <div className="container-page grid items-center gap-10 lg:grid-cols-2">
-          <div className="animate-fadeUp">
-            <span className="rounded-full bg-white/10 px-4 py-1 text-sm text-accent-400">Class 11 • 12 • JEE • NEET</span>
-            <h1 className="mt-4 text-4xl font-extrabold !text-white sm:text-5xl">Take off towards your dream rank</h1>
-            <p className="mt-4 text-lg text-slate-300">Design system preview. The full homepage comes in Stage 3.</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <button className="btn-accent">Explore Courses</button>
-              <button className="btn-outline !border-white !text-white hover:!bg-white/10">Admission</button>
-            </div>
+      <Hero />
+
+      {/* Stats strip */}
+      <section className="border-b border-slate-200 bg-white py-8">
+        <div className="container-page">
+          <div className="grid grid-cols-2 gap-6 text-center lg:grid-cols-4">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <p className="font-heading text-3xl font-extrabold text-brand-600">{s.value}</p>
+                <p className="text-sm text-slate-500">{s.label}</p>
+              </div>
+            ))}
           </div>
-          <ImageBox src="/assets/images/hero-image.png" alt="Physics Runway hero" label="Homepage hero image" ratio="aspect-[4/3]" />
+          <p className="mt-4 text-center text-xs text-slate-400">Demo website: all figures and fees are sample data.</p>
         </div>
       </section>
+
+      {/* Popular courses */}
+      <section id="courses" className="scroll-mt-20 bg-slate-50 py-16">
+        <div className="container-page">
+          <SectionHeading center eyebrow="Most loved" title="Popular Courses" subtitle="Top picks chosen by students like you." />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {popular.map((c, i) => (
+              <Reveal key={c.id} delay={i * 80}><CourseCard course={c} /></Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Category sections: Class 11, Class 12, JEE, NEET */}
+      {categories.map((cat, i) => (
+        <CategorySection
+          key={cat.slug}
+          category={cat}
+          courses={courses.filter((c) => c.category === cat.slug)}
+          tinted={i % 2 === 1}
+        />
+      ))}
+
+      <SubjectCards />
     </main>
   );
 }
