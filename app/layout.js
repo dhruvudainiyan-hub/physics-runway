@@ -1,14 +1,22 @@
 import "./globals.css";
+import { Plus_Jakarta_Sans, Inter } from "next/font/google";
+import Navbar from "@/components/Navbar";
+
+const heading = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-heading", weight: ["600", "700", "800"] });
+const body = Inter({ subsets: ["latin"], variable: "--font-body" });
 
 export const metadata = {
-  title: "Physics Runway",
-  description: "Premium coaching for Class 11, 12, JEE and NEET",
+  title: "Physics Runway | Class 11, 12, JEE & NEET Coaching",
+  description: "Premium coaching for Class 11, Class 12, JEE and NEET",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className={`${heading.variable} ${body.variable}`}>
+      <body>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
