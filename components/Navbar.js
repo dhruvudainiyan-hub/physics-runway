@@ -1,8 +1,10 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Logo from "@/components/Logo";
+import { useAuth } from "@/components/AuthProvider";
 
 const science = ["Physics", "Chemistry", "Mathematics", "Biology"];
 const menus = [
@@ -19,10 +21,13 @@ const links = [
 ];
 
 export default function Navbar() {
+  const router = useRouter();
+  const { user, signOut } = useAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [openMenu, setOpenMenu] = useState(null); // dropdown open (desktop or mobile)
+  const [openMenu, setOpenMenu] = useState(null);
   const close = () => { setMobileOpen(false); setOpenMenu(null); };
   const toggle = (slug) => setOpenMenu(openMenu === slug ? null : slug);
+  const logout = async () => { await signOut(); close(); router.push("/"); };
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
@@ -30,7 +35,6 @@ export default function Navbar() {
       <div className="container-page relative flex h-16 items-center justify-between">
         <Logo />
 
-        {/* Desktop menu */}
         <nav className="hidden items-center gap-1 xl:flex">
           <Link href="/" className="rounded-lg px-3 py-2 text-sm font-semibold hover:bg-brand-50 hover:text-brand-600">Home</Link>
           {menus.map((m) => (
@@ -51,16 +55,21 @@ export default function Navbar() {
           {links.map((l) => (
             <Link key={l.href} href={l.href} className="rounded-lg px-3 py-2 text-sm font-semibold hover:bg-brand-50 hover:text-brand-600">{l.label}</Link>
           ))}
-          <Link href="/login/" className="btn-primary ml-2 !px-5 !py-2 text-sm">Login / Register</Link>
+          {user ? (
+            <>
+              <Link href="/dashboard/" className="btn-primary ml-2 !px-5 !py-2 text-sm">Dashboard</Link>
+              <button onClick={logout} className="rounded-lg px-3 py-2 text-sm font-semibold hover:bg-brand-50">Logout</button>
+            </>
+          ) : (
+            <Link href="/login/" className="btn-primary ml-2 !px-5 !py-2 text-sm">Login / Register</Link>
+          )}
         </nav>
 
-        {/* Mobile button */}
         <button className="rounded-lg p-2 xl:hidden" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
           {mobileOpen ? <X /> : <Menu />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       {mobileOpen && (
         <nav className="max-h-[80vh] animate-fadeUp overflow-y-auto border-t border-slate-200 bg-white px-4 pb-6 pt-2 xl:hidden">
           <Link href="/" onClick={close} className="block py-3 font-semibold">Home</Link>
@@ -82,7 +91,14 @@ export default function Navbar() {
           {links.map((l) => (
             <Link key={l.href} href={l.href} onClick={close} className="block border-t border-slate-100 py-3 font-semibold">{l.label}</Link>
           ))}
-          <Link href="/login/" onClick={close} className="btn-primary mt-4 w-full">Login / Register</Link>
+          {user ? (
+            <div className="mt-4 grid gap-3">
+              <Link href="/dashboard/" onClick={close} className="btn-primary w-full">Dashboard</Link>
+              <button onClick={logout} className="btn-outline w-full">Logout</button>
+            </div>
+          ) : (
+            <Link href="/login/" onClick={close} className="btn-primary mt-4 w-full">Login / Register</Link>
+          )}
         </nav>
       )}
     </header>
