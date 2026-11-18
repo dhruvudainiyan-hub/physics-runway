@@ -3,6 +3,12 @@ import SectionHeading from "@/components/SectionHeading";
 import CourseCard from "@/components/CourseCard";
 import CategorySection from "@/components/CategorySection";
 import SubjectCards from "@/components/SubjectCards";
+import WhyChoose from "@/components/WhyChoose";
+import FacultyIntro from "@/components/FacultyIntro";
+import Testimonials from "@/components/Testimonials";
+import ResultsSection from "@/components/ResultsSection";
+import FAQ from "@/components/FAQ";
+import ContactSection from "@/components/ContactSection";
 import Reveal from "@/components/Reveal";
 import { categories, courses, popularIds, stats } from "@/lib/siteData";
 
@@ -13,7 +19,6 @@ export default function Home() {
     <main>
       <Hero />
 
-      {/* Stats strip */}
       <section className="border-b border-slate-200 bg-white py-8">
         <div className="container-page">
           <div className="grid grid-cols-2 gap-6 text-center lg:grid-cols-4">
@@ -28,7 +33,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Popular courses */}
       <section id="courses" className="scroll-mt-20 bg-slate-50 py-16">
         <div className="container-page">
           <SectionHeading center eyebrow="Most loved" title="Popular Courses" subtitle="Top picks chosen by students like you." />
@@ -40,7 +44,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Category sections: Class 11, Class 12, JEE, NEET */}
       {categories.map((cat, i) => (
         <CategorySection
           key={cat.slug}
@@ -51,6 +54,12 @@ export default function Home() {
       ))}
 
       <SubjectCards />
+      <WhyChoose />
+      <FacultyIntro />
+      <Testimonials />
+      <ResultsSection />
+      <FAQ />
+      <ContactSection />
     </main>
   );
 }
