@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import {
   LayoutDashboard, UserPlus, Users, Layers, FileText, ClipboardList,
-  Megaphone, TrendingUp, Inbox, LogOut, Loader2, ShieldAlert,
+  Megaphone, TrendingUp, Inbox, MessageSquare, LogOut, Loader2, ShieldAlert,
 } from "lucide-react";
 import { useAuth } from "@/components/AuthProvider";
 
@@ -18,6 +18,7 @@ const items = [
   { label: "Announcements", href: "/admin/announcements/", Icon: Megaphone },
   { label: "Test Results", href: "/admin/results/", Icon: TrendingUp },
   { label: "Admissions", href: "/admin/admissions/", Icon: Inbox },
+  { label: "Messages", href: "/admin/messages/", Icon: MessageSquare },
 ];
 
 export default function AdminLayout({ children }) {
@@ -59,19 +60,12 @@ export default function AdminLayout({ children }) {
             <p className="mt-1 truncate font-bold">{profile.full_name || "Administrator"}</p>
           </div>
           <nav className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-2 lg:mx-0 lg:flex-col lg:overflow-visible lg:rounded-2xl lg:bg-navy-900 lg:p-3">
-            {items.map(({ label, href, Icon, soon }) =>
-              soon ? (
-                <span key={label} className={`${base} cursor-not-allowed bg-white/60 text-slate-400 lg:bg-transparent lg:text-slate-500`}>
-                  <Icon className="h-4 w-4" /> {label}
-                  <span className="rounded-full bg-slate-200 px-2 py-0.5 text-[10px] font-bold uppercase text-slate-500 lg:bg-white/10">Soon</span>
-                </span>
-              ) : (
-                <Link key={label} href={href}
-                  className={`${base} ${here === href ? "bg-accent-500 text-navy-900 shadow" : "bg-white text-slate-700 hover:bg-brand-50 lg:bg-transparent lg:text-slate-200 lg:hover:bg-white/10"}`}>
-                  <Icon className="h-4 w-4" /> {label}
-                </Link>
-              )
-            )}
+            {items.map(({ label, href, Icon }) => (
+              <Link key={label} href={href}
+                className={`${base} ${here === href ? "bg-accent-500 text-navy-900 shadow" : "bg-white text-slate-700 hover:bg-brand-50 lg:bg-transparent lg:text-slate-200 lg:hover:bg-white/10"}`}>
+                <Icon className="h-4 w-4" /> {label}
+              </Link>
+            ))}
             <button onClick={logout} className={`${base} bg-white text-slate-700 hover:bg-brand-50 lg:bg-transparent lg:text-slate-200 lg:hover:bg-white/10`}>
               <LogOut className="h-4 w-4" /> Logout
             </button>
@@ -81,4 +75,4 @@ export default function AdminLayout({ children }) {
       </div>
     </div>
   );
-}
+                         }
