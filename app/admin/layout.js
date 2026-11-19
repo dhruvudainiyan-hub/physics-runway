@@ -14,9 +14,9 @@ const items = [
   { label: "Students", href: "/admin/students/", Icon: Users },
   { label: "Batches", href: "/admin/batches/", Icon: Layers },
   { label: "Study Materials", href: "/admin/materials/", Icon: FileText },
-  { label: "Assignments", Icon: ClipboardList, soon: true },
-  { label: "Announcements", Icon: Megaphone, soon: true },
-  { label: "Test Results", Icon: TrendingUp, soon: true },
+  { label: "Assignments", href: "/admin/assignments/", Icon: ClipboardList },
+  { label: "Announcements", href: "/admin/announcements/", Icon: Megaphone },
+  { label: "Test Results", href: "/admin/results/", Icon: TrendingUp },
   { label: "Admissions", Icon: Inbox, soon: true },
 ];
 
