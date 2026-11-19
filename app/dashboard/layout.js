@@ -40,8 +40,8 @@ export default function DashboardLayout({ children }) {
 
   return (
     <div className="min-h-[80vh] bg-slate-50">
-      <div className="container-page grid gap-6 py-6 lg:grid-cols-[250px_1fr]">
-        <aside>
+        <div className="container-page grid grid-cols-1 gap-6 py-6 lg:grid-cols-[250px_1fr]">
+        <aside className="min-w-0">
           <div className="mb-3 hidden rounded-2xl bg-white p-4 shadow-sm lg:block">
             <p className="truncate font-bold text-navy-900">{profile?.full_name || "Student"}</p>
             <p className="text-xs uppercase text-brand-600">{profile?.role || "student"}</p>
