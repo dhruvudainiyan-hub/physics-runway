@@ -60,8 +60,8 @@ export default function CourseDetails({ params }) {
                 ))}
               </ul>
               {/* Enrollment page is built in Stages 5 to 7 */}
-              <Link href={`/enroll/?course=${course.id}`} className="btn-accent mt-6 w-full">Enroll Now</Link>
-              <p className="mt-2 text-center text-xs text-slate-400">Login required. Payment is by UPI QR, verified by the administrator.</p>
+              <Link href={`/admission/?course=${course.id}`} className="btn-accent mt-6 w-full">Apply for Admission</Link>
+              <p className="mt-2 text-center text-xs text-slate-400">Fees are paid in person at the institute.</p>
             </div>
           </aside>
 
