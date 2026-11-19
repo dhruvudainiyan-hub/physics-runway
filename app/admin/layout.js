@@ -52,8 +52,8 @@ export default function AdminLayout({ children }) {
 
   return (
     <div className="min-h-[80vh] bg-slate-100">
-      <div className="container-page grid gap-6 py-6 lg:grid-cols-[260px_1fr]">
-        <aside>
+      <div className="container-page grid grid-cols-1 gap-6 py-6 lg:grid-cols-[260px_1fr]">
+        <aside className="min-w-0">
           <div className="mb-3 hidden rounded-2xl bg-navy-900 p-4 text-white lg:block">
             <p className="text-xs font-bold uppercase tracking-wider text-accent-400">Admin Panel</p>
             <p className="mt-1 truncate font-bold">{profile.full_name || "Administrator"}</p>
