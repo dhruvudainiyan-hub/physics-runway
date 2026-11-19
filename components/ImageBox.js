@@ -1,16 +1,24 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ImageIcon } from "lucide-react";
 
-/* ratio examples: "aspect-video", "aspect-square", "aspect-[4/5]", "aspect-[3/4]"
-   fit: "cover" (fills the box, may crop edges) or "contain" (never crops; use for QR code) */
+/* ratio examples: "aspect-video", "aspect-square", "aspect-[4/5]"
+   fit: "cover" (fills the box, may crop) or "contain" (never crops; use for QR code) */
 export default function ImageBox({ src, alt, label, ratio = "aspect-video", fit = "cover", className = "" }) {
   const [failed, setFailed] = useState(false);
+  const ref = useRef(null);
   const filename = src.split("/").pop();
+
+  useEffect(() => {
+    const el = ref.current;
+    if (el && el.complete && el.naturalWidth === 0) setFailed(true);
+  }, []);
+
   return (
     <div className={`relative w-full overflow-hidden rounded-2xl bg-gradient-to-br from-brand-100 to-brand-50 ${ratio} ${className}`}>
       {!failed ? (
         <img
+          ref={ref}
           src={src}
           alt={alt}
           onError={() => setFailed(true)}
@@ -25,4 +33,4 @@ export default function ImageBox({ src, alt, label, ratio = "aspect-video", fit 
       )}
     </div>
   );
-               }
+         }
