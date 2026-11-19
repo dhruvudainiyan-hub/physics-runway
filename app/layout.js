@@ -8,6 +8,8 @@ const heading = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-headin
 const body = Inter({ subsets: ["latin"], variable: "--font-body" });
 
 export const viewport = { width: "device-width", initialScale: 1 };
+
+export const metadata = {
   title: "Physics Runway | Class 11, 12, JEE & NEET Coaching",
   description: "Premium coaching for Class 11, Class 12, JEE and NEET",
 };
