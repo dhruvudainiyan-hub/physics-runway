@@ -16,8 +16,7 @@ export default function Hero() {
             Take off towards your <span className="text-accent-400">dream rank</span>
           </h1>
           <p className="mt-5 max-w-xl text-lg text-slate-300">
-            Expert faculty, structured batches and live classes — everything an ambitious
-            Indian student needs to crack boards, JEE and NEET.
+            Expert faculty, structured offline batches and a student portal — everything an ambitious
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#courses" className="btn-accent">Explore Courses <ArrowRight className="h-5 w-5" /></a>
@@ -37,7 +36,7 @@ export default function Hero() {
           />
           <div className="absolute -bottom-4 left-3 flex items-center gap-3 rounded-2xl bg-white p-3 text-navy-900 shadow-xl sm:left-6">
             <span className="rounded-xl bg-brand-50 p-2 text-brand-600"><GraduationCap className="h-6 w-6" /></span>
-            <div><p className="text-sm font-bold">Live + Recorded</p><p className="text-xs text-slate-500">Classes</p></div>
+            <div><p className="text-sm font-bold">Classroom Teaching</p><p className="text-xs text-slate-500">Offline batches</p></div>
           </div>
           <div className="absolute -top-4 right-3 flex items-center gap-3 rounded-2xl bg-white p-3 text-navy-900 shadow-xl sm:right-6">
             <span className="rounded-xl bg-accent-400/30 p-2 text-accent-500"><Trophy className="h-6 w-6" /></span>
