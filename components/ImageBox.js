@@ -33,4 +33,4 @@ export default function ImageBox({ src, alt, label, ratio = "aspect-video", fit 
       )}
     </div>
   );
-         }
+}
