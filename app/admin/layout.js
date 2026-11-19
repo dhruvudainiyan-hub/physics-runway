@@ -17,7 +17,7 @@ const items = [
   { label: "Assignments", href: "/admin/assignments/", Icon: ClipboardList },
   { label: "Announcements", href: "/admin/announcements/", Icon: Megaphone },
   { label: "Test Results", href: "/admin/results/", Icon: TrendingUp },
-  { label: "Admissions", Icon: Inbox, soon: true },
+  { label: "Admissions", href: "/admin/admissions/", Icon: Inbox },
 ];
 
 export default function AdminLayout({ children }) {
