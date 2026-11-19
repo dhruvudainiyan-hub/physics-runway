@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
-import { LayoutDashboard, BookOpen, FileText, ClipboardList, Megaphone, TrendingUp, User, Settings, LogOut, Loader2, UserPlus } from "lucide-react";
+import { LayoutDashboard, BookOpen, FileText, ClipboardList, Megaphone, TrendingUp, User, Settings, LogOut, Loader2 } from "lucide-react";
 import { useAuth } from "@/components/AuthProvider";
 
 const items = [
@@ -21,15 +21,13 @@ export default function DashboardLayout({ children }) {
   const pathname = usePathname() || "";
   const { user, profile, loading, signOut } = useAuth();
 
-    useEffect(() => {
+  useEffect(() => {
     if (loading) return;
     if (!user) router.replace("/login/");
     else if (profile?.role === "admin") router.replace("/admin/");
   }, [loading, user, profile, router]);
 
   if (loading || !user || profile?.role === "admin") {
-
-  if (loading || !user) {
     return <div className="flex min-h-[60vh] items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-brand-600" /></div>;
   }
 
@@ -54,7 +52,6 @@ export default function DashboardLayout({ children }) {
                 <Icon className="h-4 w-4" /> {label}
               </Link>
             ))}
-            
             <button onClick={logout} className={linkCls(false)}>
               <LogOut className="h-4 w-4" /> Logout
             </button>
@@ -64,4 +61,4 @@ export default function DashboardLayout({ children }) {
       </div>
     </div>
   );
-              }
+}
