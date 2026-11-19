@@ -7,7 +7,7 @@ import { AuthProvider } from "@/components/AuthProvider";
 const heading = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-heading", weight: ["600", "700", "800"] });
 const body = Inter({ subsets: ["latin"], variable: "--font-body" });
 
-export const metadata = {
+export const viewport = { width: "device-width", initialScale: 1 };
   title: "Physics Runway | Class 11, 12, JEE & NEET Coaching",
   description: "Premium coaching for Class 11, Class 12, JEE and NEET",
 };
