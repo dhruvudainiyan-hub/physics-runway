@@ -1,8 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { LockKeyhole, Eye, EyeOff, Loader2, Info } from "lucide-react";
+import { LockKeyhole, Eye, EyeOff, Loader2 } from "lucide-react";
 import { supabase, supabaseReady } from "@/lib/supabase";
 import { useAuth } from "@/components/AuthProvider";
 
@@ -42,7 +41,6 @@ export default function LoginPage() {
     setBusy(true);
     const { error: err } = await supabase.auth.signInWithPassword({ phone: `+91${phone}`, password });
     if (err) { setBusy(false); setError(friendly(err)); }
-    // On success the page redirects automatically.
   }
 
   return (
@@ -54,11 +52,6 @@ export default function LoginPage() {
             <h1 className="text-2xl font-extrabold">Student Login</h1>
             <p className="text-sm text-slate-500">Mobile number and password</p>
           </div>
-        </div>
-
-        <div className="mb-5 flex gap-2 rounded-xl bg-accent-400/20 p-3 text-xs text-navy-900">
-          <Info className="mt-0.5 h-4 w-4 shrink-0" />
-          <p><b>Demo mode:</b> mobile numbers are not verified by SMS in this demo.</p>
         </div>
 
         <form onSubmit={submit} className="space-y-4">
@@ -87,11 +80,11 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <p className="mt-5 text-center text-sm text-slate-600">
-          New student? <Link href="/register/" className="font-bold text-brand-600">Create an account</Link>
+        <p className="mt-5 rounded-xl bg-slate-50 p-3 text-center text-xs text-slate-500">
+          Accounts are created by the institute after admission. Don't have one yet? Apply through the Admission form.
+          Forgot your password? Contact the institute.
         </p>
-        <p className="mt-2 text-center text-xs text-slate-400">Forgot your password? Contact the institute to reset it.</p>
       </div>
     </main>
   );
-                  }
+}
