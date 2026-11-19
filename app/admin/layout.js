@@ -11,8 +11,8 @@ import { useAuth } from "@/components/AuthProvider";
 const items = [
   { label: "Overview", href: "/admin/", Icon: LayoutDashboard },
   { label: "Create Student", href: "/admin/students/new/", Icon: UserPlus },
-  { label: "Students", Icon: Users, soon: true },
-  { label: "Batches", Icon: Layers, soon: true },
+  { label: "Students", href: "/admin/students/", Icon: Users },
+  { label: "Batches", href: "/admin/batches/", Icon: Layers },
   { label: "Study Materials", Icon: FileText, soon: true },
   { label: "Assignments", Icon: ClipboardList, soon: true },
   { label: "Announcements", Icon: Megaphone, soon: true },
