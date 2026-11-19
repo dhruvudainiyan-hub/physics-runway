@@ -61,7 +61,7 @@ export default function Navbar() {
               <button onClick={logout} className="rounded-lg px-3 py-2 text-sm font-semibold hover:bg-brand-50">Logout</button>
             </>
           ) : (
-            <Link href="/login/" className="btn-primary ml-2 !px-5 !py-2 text-sm">Login / Register</Link>
+            <Link href="/login/" className="btn-primary ml-2 !px-5 !py-2 text-sm">Student Login</Link>
           )}
         </nav>
 
@@ -97,7 +97,7 @@ export default function Navbar() {
               <button onClick={logout} className="btn-outline w-full">Logout</button>
             </div>
           ) : (
-            <Link href="/login/" onClick={close} className="btn-primary mt-4 w-full">Login / Register</Link>
+            <Link href="/login/" onClick={close} className="btn-primary mt-4 w-full">Student Login</Link>
           )}
         </nav>
       )}
