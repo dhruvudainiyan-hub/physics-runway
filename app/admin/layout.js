@@ -59,7 +59,6 @@ export default function AdminLayout({ children }) {
             <p className="mt-1 truncate font-bold">{profile.full_name || "Administrator"}</p>
           </div>
           <nav className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-2 lg:mx-0 lg:flex-col lg:overflow-visible lg:rounded-2xl lg:bg-navy-900 lg:p-3">
-            <p className="hidden px-2 pb-1 text-xs font-bold uppercase text-accent-400 max-lg:block lg:hidden">Admin</p>
             {items.map(({ label, href, Icon, soon }) =>
               soon ? (
                 <span key={label} className={`${base} cursor-not-allowed bg-white/60 text-slate-400 lg:bg-transparent lg:text-slate-500`}>
@@ -82,4 +81,4 @@ export default function AdminLayout({ children }) {
       </div>
     </div>
   );
-      }
+}
