@@ -54,11 +54,7 @@ export default function DashboardLayout({ children }) {
                 <Icon className="h-4 w-4" /> {label}
               </Link>
             ))}
-            {profile?.role === "admin" && (
-              <Link href="/admin/students/new/" className={linkCls(false)}>
-                <UserPlus className="h-4 w-4" /> Create Student
-              </Link>
-            )}
+            
             <button onClick={logout} className={linkCls(false)}>
               <LogOut className="h-4 w-4" /> Logout
             </button>
