@@ -21,9 +21,13 @@ export default function DashboardLayout({ children }) {
   const pathname = usePathname() || "";
   const { user, profile, loading, signOut } = useAuth();
 
-  useEffect(() => {
-    if (!loading && !user) router.replace("/login/");
-  }, [loading, user, router]);
+    useEffect(() => {
+    if (loading) return;
+    if (!user) router.replace("/login/");
+    else if (profile?.role === "admin") router.replace("/admin/");
+  }, [loading, user, profile, router]);
+
+  if (loading || !user || profile?.role === "admin") {
 
   if (loading || !user) {
     return <div className="flex min-h-[60vh] items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-brand-600" /></div>;
