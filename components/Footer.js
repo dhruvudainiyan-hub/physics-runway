@@ -6,7 +6,7 @@ import { site } from "@/lib/siteData";
 const cols = [
   { title: "Courses", links: [["Class 11", "/courses/class-11/"], ["Class 12", "/courses/class-12/"], ["JEE", "/courses/jee/"], ["NEET", "/courses/neet/"]] },
   { title: "Institute", links: [["Our Faculty", "/faculty/"], ["Results", "/results/"], ["About Us", "/about/"], ["Contact Us", "/contact/"]] },
-  { title: "Students", links: [["Admission", "/admission/"], ["Login / Register", "/login/"]] },
+  { title: "Students", links: [["Admission", "/admission/"], ["Student Login", "/login/"]] },
 ];
 
 export default function Footer() {
@@ -38,4 +38,4 @@ export default function Footer() {
       </div>
     </footer>
   );
-                           }
+}
