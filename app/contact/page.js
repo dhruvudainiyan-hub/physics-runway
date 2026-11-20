@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Phone, Mail, MapPin, Instagram, Youtube, Facebook, Loader2, CheckCircle2, Map } from "lucide-react";
+import { Phone, Mail, MapPin, Youtube, Loader2, CheckCircle2, Map } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import { supabase, supabaseReady } from "@/lib/supabase";
 import { site } from "@/lib/siteData";
