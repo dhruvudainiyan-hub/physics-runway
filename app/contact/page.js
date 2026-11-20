@@ -66,7 +66,7 @@ export default function ContactPage() {
               ))}
               <div className="flex gap-3 pt-2">
                 {socials.map(({ Icon, href, name }) => (
-                  <a key={name} href={href} aria-label={name} className="rounded-full bg-brand-50 p-3 text-brand-600 hover:bg-brand-100"><Icon className="h-5 w-5" />{Watch Us on Youtube}</a>
+                  <a key={name} href={href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2.5 font-semibold text-brand-600 hover:bg-brand-100"><Icon className="h-5 w-5" /> {name}</a>
                 ))}
               </div>
             </div>
