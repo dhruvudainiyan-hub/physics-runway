@@ -10,6 +10,7 @@ import ResultsSection from "@/components/ResultsSection";
 import FAQ from "@/components/FAQ";
 import ContactSection from "@/components/ContactSection";
 import Reveal from "@/components/Reveal";
+import CountUp from "@/components/CountUp";
 import { categories, courses, popularIds, stats } from "@/lib/siteData";
 
 export default function Home() {
@@ -24,7 +25,7 @@ export default function Home() {
           <div className="grid grid-cols-2 gap-6 text-center lg:grid-cols-4">
             {stats.map((s) => (
               <div key={s.label}>
-                <p className="font-heading text-3xl font-extrabold text-brand-600">{s.value}</p>
+                <CountUp value={s.value} className="font-heading text-3xl font-extrabold text-brand-600" />
                 <p className="text-sm text-slate-500">{s.label}</p>
               </div>
             ))}
