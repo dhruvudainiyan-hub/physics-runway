@@ -47,9 +47,7 @@ export default function ContactPage() {
     { Icon: MapPin, label: "Visit us", value: site.address },
   ];
   const socials = [
-    { Icon: Instagram, href: site.social.instagram, name: "Instagram" },
     { Icon: Youtube, href: site.social.youtube, name: "YouTube" },
-    { Icon: Facebook, href: site.social.facebook, name: "Facebook" },
   ];
 
   return (
