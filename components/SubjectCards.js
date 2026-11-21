@@ -9,9 +9,9 @@ export default function SubjectCards() {
     <section className="bg-white py-16">
       <div className="container-page">
         <SectionHeading center eyebrow="Subject-wise" title="Pick your subject" subtitle="Find your subject across every class and exam." />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="flex flex-wrap justify-center gap-6">
           {Object.entries(subjects).map(([key, s], i) => (
-            <Reveal key={key} delay={i * 80}>
+            <Reveal key={key} delay={i * 80} className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
               <div className="card h-full">
                 <span className="inline-flex rounded-xl bg-gradient-to-br from-brand-600 to-brand-500 p-3 text-white">
                   <SubjectIcon subject={key} />
