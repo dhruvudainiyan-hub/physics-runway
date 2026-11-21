@@ -8,9 +8,13 @@ export default function FacultyIntro() {
     <section className="bg-white py-16">
       <div className="container-page">
         <SectionHeading center eyebrow="Meet the mentors" title="Our Faculty" />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="flex flex-wrap justify-center gap-6">
           {faculty.map((f, i) => (
-            <Reveal key={f.subject} delay={i * 80}>
+            <Reveal
+              key={f.subject}
+              delay={i * 80}
+              className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+            >
               <div className="card h-full !p-4">
                 <ImageBox src={f.image} alt={`${f.subject} faculty`} label={`${f.subject} faculty photo`} ratio="aspect-[4/5]" />
                 <span className="mt-4 inline-block rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-600">{f.subject}</span>
