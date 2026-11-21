@@ -7,7 +7,7 @@ export default function FacultyIntro() {
   return (
     <section className="bg-white py-16">
       <div className="container-page">
-        <SectionHeading center eyebrow="Meet the mentors" title="Our Faculty" subtitle="Demo profiles. Real teacher details and photos will be added later." />
+        <SectionHeading center eyebrow="Meet the mentors" title="Our Faculty" />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {faculty.map((f, i) => (
             <Reveal key={f.subject} delay={i * 80}>
