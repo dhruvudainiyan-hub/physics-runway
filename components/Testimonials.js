@@ -8,7 +8,7 @@ export default function Testimonials() {
   return (
     <section className="bg-slate-50 py-16">
       <div className="container-page">
-        <SectionHeading center eyebrow="Student voices" title="What Students Say" subtitle="Fictional demo testimonials. Replace with real ones." />
+        <SectionHeading center eyebrow="Student voices" title="What Students Say" />
         <div className="grid gap-6 md:grid-cols-3">
           {testimonials.map((t, i) => (
             <Reveal key={i} delay={i * 80}>
