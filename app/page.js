@@ -29,12 +29,8 @@ export default function Home() {
                 <p className="text-sm text-slate-500">{s.label}</p>
               </div>
             ))}
-          </div>
-          <p className="mt-4 text-center text-xs text-slate-400">Demo website: all figures and fees are sample data.</p>
-        </div>
       </section>
-
-      <section id="courses" className="scroll-mt-20 bg-slate-50 py-16">
+        <section id="courses" className="scroll-mt-20 bg-slate-50 py-16">
         <div className="container-page">
           <SectionHeading center eyebrow="Most loved" title="Popular Courses" subtitle="Top picks chosen by students like you." />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
