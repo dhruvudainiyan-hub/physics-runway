@@ -9,7 +9,7 @@ import { courses } from "@/lib/siteData";
 const inputCls = "w-full min-w-0 rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-100";
 const classes = ["Class 11", "Class 12", "12th pass / Dropper"];
 const exams = ["Board exams", "JEE", "NEET"];
-const subjectList = ["Physics", "Chemistry", "Mathematics", "Biology"];
+const subjectList = ["Physics", "Mathematics", "Biology"];
 const empty = {
   full_name: "", phone: "", email: "", current_class: "", exam_category: "", course_id: "",
   subjects: [], previous_academics: "", parent_name: "", parent_phone: "", website: "",
