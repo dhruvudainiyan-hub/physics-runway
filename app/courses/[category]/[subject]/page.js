@@ -50,7 +50,6 @@ export default function CourseDetails({ params }) {
                 <BadgeIndianRupee className="h-8 w-8 text-brand-600" />
                 {course.fee.toLocaleString("en-IN")}
               </p>
-              <p className="mt-1 text-xs text-slate-400">Sample fee for demonstration</p>
               <ul className="mt-5 space-y-3">
                 {facts.map(({ Icon, label, value }) => (
                   <li key={label} className="flex items-start gap-3 text-sm">
@@ -71,12 +70,11 @@ export default function CourseDetails({ params }) {
 
             <div className="card">
               <h2 className="text-2xl font-bold">About this course</h2>
-              <p className="mt-3">{course.description} This is demo text. Replace it with the real course description.</p>
+              <p className="mt-3">{course.description} </p>
             </div>
 
             <div className="card">
               <h2 className="text-2xl font-bold">Syllabus</h2>
-              <p className="text-xs text-slate-400">Sample syllabus for demonstration</p>
               <ul className="mt-4 grid gap-3 sm:grid-cols-2">
                 {topics.map((t, i) => (
                   <li key={t} className="flex items-start gap-2 text-sm">
