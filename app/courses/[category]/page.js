@@ -39,9 +39,7 @@ export default function CategoryPage({ params }) {
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {list.map((c) => <CourseCard key={c.id} course={c} />)}
-          </div>
-          <p className="mt-8 text-center text-xs text-slate-400">Demo website: fees and details are sample data.</p>
-        </div>
+
       </section>
     </main>
   );
