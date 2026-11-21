@@ -7,7 +7,7 @@ export default function ResultsSection() {
   return (
     <section className="bg-white py-16">
       <div className="container-page">
-        <SectionHeading center eyebrow="Achievements" title="Our Results" subtitle="Sample entries for demonstration only. Not real student results." />
+        <SectionHeading center eyebrow="Achievements" title="Our Results" />
         <div className="grid gap-6 md:grid-cols-3">
           {results.map((r, i) => (
             <Reveal key={r.exam} delay={i * 80}>
