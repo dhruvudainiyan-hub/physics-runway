@@ -14,11 +14,7 @@ export default function ResultsPage() {
 
       <section className="bg-slate-50 py-12">
         <div className="container-page">
-          <div className="mb-8 flex items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
-            <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0" />
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+               <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {results.map((r, i) => (
               <Reveal key={r.exam} delay={i * 80}>
                 <div className="card h-full">
@@ -43,7 +39,7 @@ export default function ResultsPage() {
 
       <section className="bg-white py-12">
         <div className="container-page">
-          <SectionHeading center eyebrow="Success stories" title="What our students say" subtitle="Fictional demo testimonials." />
+          <SectionHeading center eyebrow="Success stories" title="What our students say" />
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {testimonials.map((t, i) => (
               <Reveal key={i} delay={i * 80}>
