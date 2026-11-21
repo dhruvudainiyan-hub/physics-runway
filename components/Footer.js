@@ -34,7 +34,7 @@ export default function Footer() {
         ))}
       </div>
       <div className="border-t border-white/10 py-5 text-center text-xs text-slate-400">
-        © {new Date().getFullYear()} Physics Runway. Demonstration website with sample data.
+        © {new Date().getFullYear()} Physics Runway. All Rights Reserved.
       </div>
     </footer>
   );
