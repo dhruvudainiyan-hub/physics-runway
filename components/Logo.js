@@ -3,6 +3,9 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Rocket } from "lucide-react";
 
+// Set to false if your logo image already contains the name
+const SHOW_TEXT = true;
+
 export default function Logo({ light = false }) {
   const [failed, setFailed] = useState(false);
   const ref = useRef(null);
@@ -15,13 +18,19 @@ export default function Logo({ light = false }) {
   return (
     <Link href="/" className="flex items-center gap-2">
       {!failed ? (
-        <img ref={ref} src="/assets/images/logo.png" alt="Physics Runway logo" onError={() => setFailed(true)} className="h-10 w-auto" />
+        <img
+          ref={ref}
+          src="/assets/images/logo.png"
+          alt="Physics Runway logo"
+          onError={() => setFailed(true)}
+          className="h-10 w-auto max-w-[56px] object-contain"
+        />
       ) : (
         <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-600 to-brand-500 text-white shadow-md">
           <Rocket className="h-5 w-5" />
         </span>
       )}
-      {failed && (
+      {(SHOW_TEXT || failed) && (
         <span className={`font-heading text-xl font-extrabold leading-none ${light ? "text-white" : "text-navy-900"}`}>
           Physics<span className="text-accent-500"> Runway</span>
         </span>
