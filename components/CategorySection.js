@@ -14,9 +14,9 @@ export default function CategorySection({ category, courses, tinted = false }) {
             View all <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="flex flex-wrap justify-center gap-6">
           {courses.map((c, i) => (
-            <Reveal key={c.id} delay={i * 80}><CourseCard course={c} /></Reveal>
+            <Reveal key={c.id} delay={i * 80} className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"><CourseCard course={c} /></Reveal>
           ))}
         </div>
       </div>
