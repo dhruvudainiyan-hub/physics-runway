@@ -10,9 +10,9 @@ export default function FacultyPage() {
     <main>
       <PageHeader eyebrow="Meet the mentors" title="Our Faculty" crumbs={[{ label: "Our Faculty" }]} />
       <section className="bg-slate-50 py-12">
-        <div className="container-page grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="container-page flex flex-wrap justify-center gap-6">
           {faculty.map((f, i) => (
-            <Reveal key={f.subject} delay={i * 80}>
+            <Reveal key={f.subject} delay={i * 80} className="w-full md:w-[calc(50%-12px)]">
               <div className="card flex h-full flex-col gap-5 sm:flex-row">
                 <div className="w-full shrink-0 sm:w-44">
                   <ImageBox src={f.image} alt={`${f.subject} faculty`} label={`${f.subject} faculty photo`} ratio="aspect-[4/5]" />
