@@ -6,12 +6,12 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import Logo from "@/components/Logo";
 import { useAuth } from "@/components/AuthProvider";
 
-const science = ["Physics", "Chemistry", "Mathematics", "Biology"];
+const science = ["Physics", "Mathematics", "Biology"];
 const menus = [
   { label: "Class 11", slug: "class-11", subjects: science },
   { label: "Class 12", slug: "class-12", subjects: science },
-  { label: "JEE", slug: "jee", subjects: ["Physics", "Chemistry", "Mathematics"] },
-  { label: "NEET", slug: "neet", subjects: ["Physics", "Chemistry", "Biology"] },
+  { label: "JEE", slug: "jee", subjects: ["Physics", "Mathematics"] },
+  { label: "NEET", slug: "neet", subjects: ["Physics", "Biology"] },
 ];
 const links = [
   { label: "Our Faculty", href: "/faculty/" },
