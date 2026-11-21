@@ -37,8 +37,8 @@ export default function CategoryPage({ params }) {
               </Link>
             ))}
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {list.map((c) => <CourseCard key={c.id} course={c} />)}
+          <div className="flex flex-wrap justify-center gap-6">
+            {list.map((c) => <div key={c.id} className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"><CourseCard course={c} /></div>)}
           </div>
         </div>
       </section>
