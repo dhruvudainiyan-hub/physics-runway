@@ -18,7 +18,6 @@ export default function AboutPage() {
           <div>
             <SectionHeading eyebrow="Introduction" title="Built for ambitious students" />
             <p className="-mt-4 text-lg text-slate-600">{about.intro}</p>
-            <p className="mt-4 text-xs text-slate-400">Demo text. The institute will provide the final wording.</p>
           </div>
           <ImageBox src="/assets/images/institute-image.png" alt="Physics Runway institute" label="Institute photo" ratio="aspect-[4/3]" className="shadow-xl" />
         </div>
