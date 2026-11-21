@@ -8,7 +8,7 @@ export const metadata = { title: "Our Faculty | Physics Runway" };
 export default function FacultyPage() {
   return (
     <main>
-      <PageHeader eyebrow="Meet the mentors" title="Our Faculty" subtitle="Demo profiles. Real teacher names, photos and details will be added by the institute." crumbs={[{ label: "Our Faculty" }]} />
+      <PageHeader eyebrow="Meet the mentors" title="Our Faculty" crumbs={[{ label: "Our Faculty" }]} />
       <section className="bg-slate-50 py-12">
         <div className="container-page grid grid-cols-1 gap-6 md:grid-cols-2">
           {faculty.map((f, i) => (
