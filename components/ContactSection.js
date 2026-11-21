@@ -14,7 +14,7 @@ export default function ContactSection() {
     <section className="bg-white py-16">
       <div className="container-page grid items-center gap-10 lg:grid-cols-2">
         <div>
-          <SectionHeading eyebrow="Get in touch" title="Talk to our counsellors" subtitle="Contact details below are placeholders. Edit them in lib/siteData.js." />
+          <SectionHeading eyebrow="Get in touch" title="Talk to our counsellors" />
           <div className="space-y-4">
             {rows.map(({ Icon, label, value }) => (
               <div key={label} className="flex items-start gap-4">
