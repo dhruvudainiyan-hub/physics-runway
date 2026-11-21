@@ -16,7 +16,6 @@ export default function ResultsPage() {
         <div className="container-page">
           <div className="mb-8 flex items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
             <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0" />
-            <p><b>Demonstration data.</b> All names, scores and quotes on this page are fictional samples. They are not real students or real results. The institute will replace them with genuine, verified results.</p>
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
