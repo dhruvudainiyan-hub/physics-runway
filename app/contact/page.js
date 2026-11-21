@@ -57,7 +57,6 @@ export default function ContactPage() {
         <div className="container-page grid grid-cols-1 gap-8 lg:grid-cols-2">
           <div className="space-y-6">
             <div className="card space-y-4">
-              <p className="text-xs text-slate-400">Placeholder details. Edit them in lib/siteData.js.</p>
               {rows.map(({ Icon, label, value }) => (
                 <div key={label} className="flex items-start gap-4">
                   <span className="rounded-xl bg-brand-50 p-3 text-brand-600"><Icon className="h-5 w-5" /></span>
