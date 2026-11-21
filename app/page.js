@@ -29,8 +29,11 @@ export default function Home() {
                 <p className="text-sm text-slate-500">{s.label}</p>
               </div>
             ))}
+          </div>
+        </div>
       </section>
-        <section id="courses" className="scroll-mt-20 bg-slate-50 py-16">
+
+      <section id="courses" className="scroll-mt-20 bg-slate-50 py-16">
         <div className="container-page">
           <SectionHeading center eyebrow="Most loved" title="Popular Courses" subtitle="Top picks chosen by students like you." />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -59,4 +62,4 @@ export default function Home() {
       <ContactSection />
     </main>
   );
-}
+        }
