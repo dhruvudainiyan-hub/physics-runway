@@ -4,9 +4,15 @@ import Logo from "@/components/Logo";
 import { site } from "@/lib/siteData";
 
 const cols = [
-    { title: "Courses", links: [["Class 10", "/courses/class-10/"], ["Class 11", "/courses/class-11/"], ["Class 12", "/courses/class-12/"]] },
+  { title: "Courses", links: [["Class 10", "/courses/class-10/"], ["Class 11", "/courses/class-11/"], ["Class 12", "/courses/class-12/"]] },
   { title: "Institute", links: [["Our Faculty", "/faculty/"], ["Results", "/results/"], ["About Us", "/about/"], ["Contact Us", "/contact/"]] },
   { title: "Students", links: [["Admission", "/admission/"], ["Student Login", "/login/"]] },
+];
+
+const socials = [
+  { Icon: Instagram, href: site.social.instagram, label: "Follow us on Instagram" },
+  { Icon: Youtube, href: site.social.youtube, label: "Watch us on YouTube" },
+  { Icon: Facebook, href: site.social.facebook, label: "Like us on Facebook" },
 ];
 
 export default function Footer() {
@@ -16,9 +22,12 @@ export default function Footer() {
         <div className="lg:col-span-2">
           <Logo light />
           <p className="mt-4 max-w-sm text-sm">Premium coaching for Class 10, 11 and 12.</p>
-           <div className="mt-5 flex flex-wrap gap-3">
-             {[[Instagram, site.social.instagram, "Instagram"], [Youtube, site.social.youtube, "YouTube"], [Facebook, site.social.facebook, "Facebook"]].map(([Icon, href, name]) => (
-              <a key={name} href={href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2.5 font-semibold text-brand-600 hover:bg-brand-100"><Icon className="h-5 w-5" /> Watch Us on Youtube </a>
+          <div className="mt-5 flex flex-col items-start gap-3">
+            {socials.map(({ Icon, href, label }) => (
+              <a key={label} href={href} target="_blank" rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white hover:bg-white/20">
+                <Icon className="h-5 w-5" /> {label}
+              </a>
             ))}
           </div>
         </div>
@@ -38,4 +47,4 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+              }
