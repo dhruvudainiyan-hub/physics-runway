@@ -20,7 +20,7 @@ export function generateMetadata({ params }) {
 
 export default function CourseDetails({ params }) {
   const course = courses.find((x) => x.id === `${params.category}-${params.subject}`);
-  const teacher = faculty.find((f) => f.subject === course.subjectName);
+  const teacher = faculty.find((f) => (f.teaches || [f.subject]).includes(course.subjectName));
   const topics = syllabus[course.id] || syllabus[course.subject] || [];
   const related = courses.filter((c) => c.category === course.category && c.id !== course.id);
 
