@@ -11,7 +11,7 @@ export const metadata = { title: "About Us | Physics Runway" };
 export default function AboutPage() {
   return (
     <main>
-      <PageHeader eyebrow="Who we are" title="About Physics Runway" subtitle="Coaching for Class 11, Class 12, JEE and NEET." crumbs={[{ label: "About Us" }]} />
+      <PageHeader eyebrow="Who we are" title="About Physics Runway" subtitle="Coaching for Class 10, Class 11 and Class 12." crumbs={[{ label: "About Us" }]} />
 
       <section className="bg-white py-12">
         <div className="container-page grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
