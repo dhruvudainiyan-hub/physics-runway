@@ -1,8 +1,6 @@
 import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
 import CourseCard from "@/components/CourseCard";
-import CategorySection from "@/components/CategorySection";
-import SubjectCards from "@/components/SubjectCards";
 import WhyChoose from "@/components/WhyChoose";
 import FacultyIntro from "@/components/FacultyIntro";
 import Testimonials from "@/components/Testimonials";
@@ -11,11 +9,9 @@ import FAQ from "@/components/FAQ";
 import ContactSection from "@/components/ContactSection";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
-import { categories, courses, popularIds, stats } from "@/lib/siteData";
+import { courses, stats } from "@/lib/siteData";
 
 export default function Home() {
-  const popular = popularIds.map((id) => courses.find((c) => c.id === id)).filter(Boolean);
-
   return (
     <main>
       <Hero />
@@ -35,25 +31,17 @@ export default function Home() {
 
       <section id="courses" className="scroll-mt-20 bg-slate-50 py-16">
         <div className="container-page">
-          <SectionHeading center eyebrow="Most loved" title="Popular Courses" subtitle="Top picks chosen by students like you." />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {popular.map((c, i) => (
-              <Reveal key={c.id} delay={i * 80}><CourseCard course={c} /></Reveal>
+          <SectionHeading center eyebrow="What we teach" title="Our Courses" subtitle="Choose your class and start learning." />
+          <div className="flex flex-wrap justify-center gap-6">
+            {courses.map((c, i) => (
+              <Reveal key={c.id} delay={i * 80} className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+                <CourseCard course={c} />
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {categories.map((cat, i) => (
-        <CategorySection
-          key={cat.slug}
-          category={cat}
-          courses={courses.filter((c) => c.category === cat.slug)}
-          tinted={i % 2 === 1}
-        />
-      ))}
-
-      <SubjectCards />
       <WhyChoose />
       <FacultyIntro />
       <Testimonials />
@@ -62,4 +50,4 @@ export default function Home() {
       <ContactSection />
     </main>
   );
-        }
+}
