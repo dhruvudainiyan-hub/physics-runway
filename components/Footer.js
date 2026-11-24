@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Youtube } from "lucide-react";
+import { Instagram, Youtube, Facebook } from "lucide-react";
 import Logo from "@/components/Logo";
 import { site } from "@/lib/siteData";
 
@@ -16,8 +16,8 @@ export default function Footer() {
         <div className="lg:col-span-2">
           <Logo light />
           <p className="mt-4 max-w-sm text-sm">Premium coaching for Class 10, 11 and 12.</p>
-          <div className="mt-5 flex gap-3">
-            {[[Youtube, site.social.youtube, "YouTube"]].map(([Icon, href, name]) => (
+           <div className="mt-5 flex flex-wrap gap-3">
+             {[[Instagram, site.social.instagram, "Instagram"], [Youtube, site.social.youtube, "YouTube"], [Facebook, site.social.facebook, "Facebook"]].map(([Icon, href, name]) => (
               <a key={name} href={href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2.5 font-semibold text-brand-600 hover:bg-brand-100"><Icon className="h-5 w-5" /> Watch Us on Youtube </a>
             ))}
           </div>
