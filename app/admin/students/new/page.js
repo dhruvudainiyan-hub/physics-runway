@@ -7,8 +7,8 @@ import { useAuth } from "@/components/AuthProvider";
 
 const inputCls =
   "w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-100";
-const classes = ["Class 11", "Class 12", "12th pass / Dropper"];
-const exams = ["Board exams", "JEE", "NEET"];
+const classes = ["Class 10","Class 11", "Class 12"];
+const exams = ["Board exams"];
 const empty = { full_name: "", phone: "", password: "", email: "", class_level: "", exam_category: "", school: "", city: "", parent_name: "" };
 
 function genPassword() {
