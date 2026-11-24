@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="container-page relative grid items-center gap-12 py-14 lg:grid-cols-2 lg:py-20">
         <div className="animate-fadeUp">
           <span className="inline-block rounded-full bg-white/10 px-4 py-1 text-sm font-semibold text-accent-400">
-            Class 11 • Class 12 • JEE • NEET
+            Class 10 • Class 11 • Class 12
           </span>
           <h1 className="mt-5 text-4xl font-extrabold leading-tight !text-white sm:text-5xl lg:text-6xl">
             Take off towards your <span className="text-accent-400">dream rank</span>
