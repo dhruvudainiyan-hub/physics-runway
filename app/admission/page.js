@@ -7,9 +7,9 @@ import { supabase, supabaseReady } from "@/lib/supabase";
 import { courses } from "@/lib/siteData";
 
 const inputCls = "w-full min-w-0 rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-100";
-const classes = ["Class 11", "Class 12", "12th pass / Dropper"];
-const exams = ["Board exams", "JEE", "NEET"];
-const subjectList = ["Physics", "Mathematics", "Biology"];
+const classes = ["Class 10", "Class 11", "Class 12"];
+const exams = ["Board Exams"];
+const subjectList = ["Physics", "Science"];
 const empty = {
   full_name: "", phone: "", email: "", current_class: "", exam_category: "", course_id: "",
   subjects: [], previous_academics: "", parent_name: "", parent_phone: "", website: "",
@@ -31,8 +31,8 @@ export default function AdmissionPage() {
         ...p,
         course_id: c.id,
         subjects: [c.subjectName],
-        exam_category: c.category === "jee" ? "JEE" : c.category === "neet" ? "NEET" : "Board exams",
-        current_class: c.category === "class-11" ? "Class 11" : c.category === "class-12" ? "Class 12" : p.current_class,
+        exam_category: "Board exams",
+        current_class: c.category === "class-10" ? "Class 10" : c.category === "class-11" ? "Class 11" : "Class 12",
       }));
     } catch {}
   }, []);
