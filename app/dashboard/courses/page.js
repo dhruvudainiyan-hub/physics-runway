@@ -27,7 +27,7 @@ export default function MyCourses() {
             <p className="mt-3 text-xs text-slate-400">
               Enrolled since {fmtDate(e.starts_on)}{e.expires_on ? ` · Access until ${fmtDate(e.expires_on)}` : ""}
             </p>
-            <Link href={`/courses/${e.batch.course_id.replace(/^(class-1[12]|jee|neet)-/, "$1/")}/`} className="mt-3 inline-block text-sm font-semibold text-brand-600">
+            <Link href={`/courses/${e.batch.course_id.replace(/^(class-1[012]|jee|neet)-/, "$1/")}/`} className="mt-3 inline-block text-sm font-semibold text-brand-600">
               View course details
             </Link>
           </div>
