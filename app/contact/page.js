@@ -46,10 +46,10 @@ export default function ContactPage() {
     { Icon: Mail, label: "Email", value: site.email },
     { Icon: MapPin, label: "Visit us", value: site.address },
   ];
-   const socials = [
-    { Icon: Instagram, href: site.social.instagram, name: "Instagram" },
-    { Icon: Youtube, href: site.social.youtube, name: "YouTube" },
-    { Icon: Facebook, href: site.social.facebook, name: "Facebook" },
+  const socials = [
+    { Icon: Instagram, href: site.social.instagram, label: "Follow us on Instagram" },
+    { Icon: Youtube, href: site.social.youtube, label: "Watch us on YouTube" },
+    { Icon: Facebook, href: site.social.facebook, label: "Like us on Facebook" },
   ];
 
   return (
@@ -66,8 +66,8 @@ export default function ContactPage() {
                 </div>
               ))}
               <div className="flex flex-wrap gap-3 pt-2">
-                {socials.map(({ Icon, href, name }) => (
-                  <a key={name} href={href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2.5 font-semibold text-brand-600 hover:bg-brand-100"><Icon className="h-5 w-5" /> Watch Us on Youtube </a>
+                {socials.map(({ Icon, href, label }) => (
+                  <a key={label} href={href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2.5 font-semibold text-brand-600 hover:bg-brand-100"><Icon className="h-5 w-5" /> {label}</a>
                 ))}
               </div>
             </div>
