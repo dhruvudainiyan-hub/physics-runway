@@ -21,7 +21,7 @@ export function generateMetadata({ params }) {
 export default function CourseDetails({ params }) {
   const course = courses.find((x) => x.id === `${params.category}-${params.subject}`);
   const teacher = faculty.find((f) => f.subject === course.subjectName);
-  const topics = syllabus[course.subject] || [];
+  const topics = syllabus[course.id] || syllabus[course.subject] || [];
   const related = courses.filter((c) => c.category === course.category && c.id !== course.id);
 
   const facts = [
@@ -79,7 +79,7 @@ export default function CourseDetails({ params }) {
                 {topics.map((t, i) => (
                   <li key={t} className="flex items-start gap-2 text-sm">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-600" />
-                    <span><span className="font-semibold text-navy-900">Unit {i + 1}:</span> {t}</span>
+                    <span className="font-semibold text-navy-900">Chapter {i + 1}:</span> {t}
                   </li>
                 ))}
               </ul>
