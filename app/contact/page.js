@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Phone, Mail, MapPin, Youtube, Loader2, CheckCircle2, Map } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram, Youtube, Facebook, Loader2, CheckCircle2, Map } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import { supabase, supabaseReady } from "@/lib/supabase";
 import { site } from "@/lib/siteData";
@@ -46,8 +46,10 @@ export default function ContactPage() {
     { Icon: Mail, label: "Email", value: site.email },
     { Icon: MapPin, label: "Visit us", value: site.address },
   ];
-  const socials = [
+   const socials = [
+    { Icon: Instagram, href: site.social.instagram, name: "Instagram" },
     { Icon: Youtube, href: site.social.youtube, name: "YouTube" },
+    { Icon: Facebook, href: site.social.facebook, name: "Facebook" },
   ];
 
   return (
@@ -63,7 +65,7 @@ export default function ContactPage() {
                   <div className="min-w-0"><p className="text-sm text-slate-500">{label}</p><p className="break-words font-semibold text-navy-900">{value}</p></div>
                 </div>
               ))}
-              <div className="flex gap-3 pt-2">
+              <div className="flex flex-wrap gap-3 pt-2">
                 {socials.map(({ Icon, href, name }) => (
                   <a key={name} href={href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2.5 font-semibold text-brand-600 hover:bg-brand-100"><Icon className="h-5 w-5" /> Watch Us on Youtube </a>
                 ))}
