@@ -8,10 +8,9 @@ import { useAuth } from "@/components/AuthProvider";
 
 const science = ["Physics", "Mathematics", "Biology"];
 const menus = [
-  { label: "Class 11", slug: "class-11", subjects: science },
-  { label: "Class 12", slug: "class-12", subjects: science },
-  { label: "JEE", slug: "jee", subjects: ["Physics", "Mathematics"] },
-  { label: "NEET", slug: "neet", subjects: ["Physics", "Biology"] },
+  { label: "Class 10", slug: "class-10", subjects: ["Science"] },
+  { label: "Class 11", slug: "class-11", subjects: ["Physics"] },
+  { label: "Class 12", slug: "class-12", subjects: ["Physics"] },
 ];
 const links = [
   { label: "Our Faculty", href: "/faculty/" },
