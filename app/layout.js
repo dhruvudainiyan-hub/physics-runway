@@ -10,8 +10,8 @@ const body = Inter({ subsets: ["latin"], variable: "--font-body" });
 export const viewport = { width: "device-width", initialScale: 1 };
 
 export const metadata = {
-  title: "Physics Runway | Class 11, 12, JEE & NEET Coaching",
-  description: "Premium coaching for Class 11, Class 12, JEE and NEET",
+  title: "Physics Runway | Class 10, 11 & 12 Coaching",
+  description: "Premium coaching for Class 10, Class 11 and Class 12",
 };
 
 export default function RootLayout({ children }) {
