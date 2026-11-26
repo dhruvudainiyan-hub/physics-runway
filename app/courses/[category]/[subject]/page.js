@@ -20,7 +20,7 @@ export function generateMetadata({ params }) {
 
 export default function CourseDetails({ params }) {
   const course = courses.find((x) => x.id === `${params.category}-${params.subject}`);
-  const teacher = faculty.find((f) => (f.teaches || [f.subject]).includes(course.subjectName));
+  const teachers = faculty.filter((f) => (f.teaches || [f.subject]).includes(course.subjectName));
   const topics = syllabus[course.id] || syllabus[course.subject] || [];
   const related = courses.filter((c) => c.category === course.category && c.id !== course.id);
 
@@ -42,13 +42,13 @@ export default function CourseDetails({ params }) {
 
       <section className="bg-slate-50 py-12">
         <div className="container-page grid gap-8 lg:grid-cols-3">
-          {/* Price card (shown first on phones) */}
           <aside className="order-first lg:order-last">
             <div className="card sticky top-24">
               <p className="text-sm text-slate-500">Monthly fee</p>
               <p className="flex items-center gap-1 font-heading text-4xl font-extrabold text-navy-900">
                 <BadgeIndianRupee className="h-8 w-8 text-brand-600" />
                 {course.fee.toLocaleString("en-IN")}
+                <span className="ml-1 text-base font-medium text-slate-500">/ month</span>
               </p>
               <ul className="mt-5 space-y-3">
                 {facts.map(({ Icon, label, value }) => (
@@ -58,19 +58,17 @@ export default function CourseDetails({ params }) {
                   </li>
                 ))}
               </ul>
-              {/* Enrollment page is built in Stages 5 to 7 */}
               <Link href={`/admission/?course=${course.id}`} className="btn-accent mt-6 w-full">Apply for Admission</Link>
               <p className="mt-2 text-center text-xs text-slate-400">Fees are paid in person at the institute.</p>
             </div>
           </aside>
 
-          {/* Main content */}
           <div className="space-y-8 lg:col-span-2">
             <ImageBox src={course.image} alt={`${course.title} thumbnail`} label={`${course.title} thumbnail`} ratio="aspect-video" className="shadow-lg" />
 
             <div className="card">
               <h2 className="text-2xl font-bold">About this course</h2>
-              <p className="mt-3">{course.description} </p>
+              <p className="mt-3">{course.description}</p>
             </div>
 
             <div className="card">
@@ -79,7 +77,7 @@ export default function CourseDetails({ params }) {
                 {topics.map((t, i) => (
                   <li key={t} className="flex items-start gap-2 text-sm">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-600" />
-                    <span className="font-semibold text-navy-900">Chapter {i + 1}:</span> {t}
+                    <span><span className="font-semibold text-navy-900">Chapter {i + 1}:</span> {t}</span>
                   </li>
                 ))}
               </ul>
@@ -95,18 +93,22 @@ export default function CourseDetails({ params }) {
               </div>
             </div>
 
-            {teacher && (
+            {teachers.length > 0 && (
               <div className="card">
                 <h2 className="text-2xl font-bold">Your faculty</h2>
-                <div className="mt-4 flex items-start gap-4">
-                  <div className="w-24 shrink-0">
-                    <ImageBox src={teacher.image} alt={`${teacher.subject} faculty`} label="Photo" ratio="aspect-[4/5]" />
-                  </div>
-                  <div>
-                    <p className="text-lg font-bold text-navy-900">{teacher.name}</p>
-                    <p className="text-sm text-slate-500">{teacher.qualification} · {teacher.experience}</p>
-                    <p className="mt-2 text-sm">{teacher.bio}</p>
-                  </div>
+                <div className="mt-4 space-y-6">
+                  {teachers.map((t) => (
+                    <div key={t.name + t.subject} className="flex items-start gap-4">
+                      <div className="w-24 shrink-0">
+                        <ImageBox src={t.image} alt={`${t.subject} faculty`} label="Photo" ratio="aspect-[4/5]" />
+                      </div>
+                      <div>
+                        <p className="text-lg font-bold text-navy-900">{t.name}</p>
+                        <p className="text-sm text-slate-500">{t.qualification} · {t.experience}</p>
+                        <p className="mt-2 text-sm">{t.bio}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             )}
@@ -126,4 +128,4 @@ export default function CourseDetails({ params }) {
       )}
     </main>
   );
-}
+                }
