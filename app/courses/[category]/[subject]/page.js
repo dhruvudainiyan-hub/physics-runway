@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { Clock, CalendarDays, Users, Video, CheckCircle2, BadgeIndianRupee } from "lucide-react";
+import { Clock, Video, CheckCircle2, BadgeIndianRupee } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import ImageBox from "@/components/ImageBox";
 import CourseCard from "@/components/CourseCard";
 import { courses } from "@/lib/siteData";
 import { faculty } from "@/lib/homeData";
-import { syllabus, batchInfo } from "@/lib/syllabus";
+import { syllabus } from "@/lib/syllabus";
 
 export const dynamicParams = false;
 
@@ -26,9 +26,7 @@ export default function CourseDetails({ params }) {
 
   const facts = [
     { Icon: Clock, label: "Duration", value: course.duration },
-    { Icon: Users, label: "Batch", value: batchInfo.name },
-    { Icon: CalendarDays, label: "Timing", value: batchInfo.timing },
-    { Icon: Video, label: "Mode", value: batchInfo.mode },
+    { Icon: Video, label: "Mode", value: "Offline classroom teaching" },
   ];
 
   return (
@@ -81,16 +79,6 @@ export default function CourseDetails({ params }) {
                   </li>
                 ))}
               </ul>
-            </div>
-
-            <div className="card">
-              <h2 className="text-2xl font-bold">Batch information</h2>
-              <div className="mt-4 grid gap-3 text-sm sm:grid-cols-2">
-                <p><span className="block text-slate-500">Batch</span><span className="font-semibold text-navy-900">{batchInfo.name}</span></p>
-                <p><span className="block text-slate-500">Seats</span><span className="font-semibold text-navy-900">{batchInfo.seats}</span></p>
-                <p><span className="block text-slate-500">Timing</span><span className="font-semibold text-navy-900">{batchInfo.timing}</span></p>
-                <p><span className="block text-slate-500">Start</span><span className="font-semibold text-navy-900">{batchInfo.start}</span></p>
-              </div>
             </div>
 
             {teachers.length > 0 && (
