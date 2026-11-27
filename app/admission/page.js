@@ -181,6 +181,7 @@ export default function AdmissionPage() {
             {busy ? <><Loader2 className="h-5 w-5 animate-spin" /> Submitting…</> : "Submit Application"}
           </button>
           <p className="text-center text-xs text-slate-400">Fees are paid in person at the institute after admission is confirmed.</p>
+          <p className="text-center text-xs text-slate-400">By submitting, you agree to our <a href="/privacy/" className="font-semibold text-brand-600">Privacy Policy</a>.</p>
         </form>
       </section>
     </main>
