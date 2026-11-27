@@ -13,8 +13,7 @@ const menus = [
   { label: "Class 12", slug: "class-12", subjects: ["Physics"] },
 ];
 const links = [
-  { label: "Our Faculty", href: "/faculty/" },
-  { label: "Results", href: "/results/" },
+  { label: "Our Faculty", href: "/faculty/"},
   { label: "About Us", href: "/about/" },
   { label: "Contact Us", href: "/contact/" },
 ];
