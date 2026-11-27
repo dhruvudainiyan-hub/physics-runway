@@ -3,8 +3,6 @@ import SectionHeading from "@/components/SectionHeading";
 import CourseCard from "@/components/CourseCard";
 import WhyChoose from "@/components/WhyChoose";
 import FacultyIntro from "@/components/FacultyIntro";
-import Testimonials from "@/components/Testimonials";
-import ResultsSection from "@/components/ResultsSection";
 import FAQ from "@/components/FAQ";
 import ContactSection from "@/components/ContactSection";
 import Reveal from "@/components/Reveal";
@@ -44,8 +42,6 @@ export default function Home() {
 
       <WhyChoose />
       <FacultyIntro />
-      <Testimonials />
-      <ResultsSection />
       <FAQ />
       <ContactSection />
     </main>
