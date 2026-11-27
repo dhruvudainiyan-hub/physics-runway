@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { Phone, Mail, MapPin, Instagram, Youtube, Facebook, Loader2, CheckCircle2, Map } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import { supabase, supabaseReady } from "@/lib/supabase";
@@ -62,12 +63,18 @@ export default function ContactPage() {
               {rows.map(({ Icon, label, value }) => (
                 <div key={label} className="flex items-start gap-4">
                   <span className="rounded-xl bg-brand-50 p-3 text-brand-600"><Icon className="h-5 w-5" /></span>
-                  <div className="min-w-0"><p className="text-sm text-slate-500">{label}</p><p className="break-words font-semibold text-navy-900">{value}</p></div>
+                  <div className="min-w-0">
+                    <p className="text-sm text-slate-500">{label}</p>
+                    <p className="break-words font-semibold text-navy-900">{value}</p>
+                  </div>
                 </div>
               ))}
               <div className="flex flex-wrap gap-3 pt-2">
                 {socials.map(({ Icon, href, label }) => (
-                  <a key={label} href={href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2.5 font-semibold text-brand-600 hover:bg-brand-100"><Icon className="h-5 w-5" /> {label}</a>
+                  <a key={label} href={href} target="_blank" rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2.5 font-semibold text-brand-600 hover:bg-brand-100">
+                    <Icon className="h-5 w-5" /> {label}
+                  </a>
                 ))}
               </div>
             </div>
@@ -78,7 +85,6 @@ export default function ContactPage() {
               <div className="flex h-56 flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-brand-200 bg-brand-50 p-4 text-center text-brand-600">
                 <Map className="h-9 w-9 opacity-70" />
                 <p className="font-semibold">Google Maps location</p>
-                <p className="text-xs">In Google Maps tap Share, then Embed a map, copy the link inside src="...", and paste it as mapEmbedUrl in lib/siteData.js.</p>
               </div>
             )}
           </div>
@@ -91,14 +97,26 @@ export default function ContactPage() {
               <button onClick={() => setSent(false)} className="btn-outline mt-5">Send another message</button>
             </div>
           ) : (
-            <form onSubmit={submit} className="card space-y-4">
+            <form onSubmit={submit} className="card flex flex-col gap-4">
               <h2 className="text-xl font-bold">Send us a message</h2>
-              <div><label className="mb-1 block text-sm font-semibold">Your name *</label><input className={inputCls} value={f.name} onChange={set("name")} /></div>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <div><label className="mb-1 block text-sm font-semibold">Mobile number *</label><input className={inputCls} inputMode="numeric" maxLength={10} value={f.phone} onChange={(e) => setF({ ...f, phone: e.target.value.replace(/\D/g, "") })} /></div>
-                <div><label className="mb-1 block text-sm font-semibold">Email (optional)</label><input type="email" className={inputCls} value={f.email} onChange={set("email")} /></div>
+              <div>
+                <label className="mb-1 block text-sm font-semibold">Your name *</label>
+                <input className={inputCls} value={f.name} onChange={set("name")} />
               </div>
-              <div><label className="mb-1 block text-sm font-semibold">Message *</label><textarea rows={5} maxLength={2000} className={inputCls} value={f.message} onChange={set("message")} /></div>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div>
+                  <label className="mb-1 block text-sm font-semibold">Mobile number *</label>
+                  <input className={inputCls} inputMode="numeric" maxLength={10} value={f.phone} onChange={(e) => setF({ ...f, phone: e.target.value.replace(/\D/g, "") })} />
+                </div>
+                <div>
+                  <label className="mb-1 block text-sm font-semibold">Email (optional)</label>
+                  <input type="email" className={inputCls} value={f.email} onChange={set("email")} />
+                </div>
+              </div>
+              <div className="flex flex-1 flex-col">
+                <label className="mb-1 block text-sm font-semibold">Message *</label>
+                <textarea rows={5} maxLength={2000} className={`${inputCls} min-h-[8rem] flex-1 resize-none`} value={f.message} onChange={set("message")} />
+              </div>
               <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", height: 0, overflow: "hidden" }}>
                 <label>Website <input tabIndex={-1} autoComplete="off" value={f.website} onChange={set("website")} /></label>
               </div>
@@ -106,10 +124,14 @@ export default function ContactPage() {
               <button type="submit" disabled={busy} className="btn-primary w-full disabled:opacity-60">
                 {busy ? <><Loader2 className="h-5 w-5 animate-spin" /> Sending…</> : "Send message"}
               </button>
+              <p className="text-center text-xs text-slate-400">
+                By sending this message you agree to our{" "}
+                <Link href="/privacy/" className="font-semibold text-brand-600 hover:underline">Privacy Policy</Link>.
+              </p>
             </form>
           )}
         </div>
       </section>
     </main>
   );
-    }
+                  }
