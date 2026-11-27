@@ -5,7 +5,7 @@ import { site } from "@/lib/siteData";
 
 const cols = [
   { title: "Courses", links: [["Class 10", "/courses/class-10/"], ["Class 11", "/courses/class-11/"], ["Class 12", "/courses/class-12/"]] },
-  { title: "Institute", links: [["Our Faculty", "/faculty/"], ["Results", "/results/"], ["About Us", "/about/"], ["Contact Us", "/contact/"]] },
+  { title: "Institute", links: [["Our Faculty", "/faculty/"], ["Results", "/results/"], ["About Us", "/about/"], ["Contact Us", "/contact/"], ["Privacy Policy", "/privacy/"]] },
   { title: "Students", links: [["Admission", "/admission/"], ["Student Login", "/login/"]] },
 ];
 
