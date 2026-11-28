@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import {
-  LayoutDashboard, UserPlus, Users, Layers, FileText, ClipboardList,
-  Megaphone, TrendingUp, Inbox, MessageSquare, Library, LogOut, Loader2, ShieldAlert,
+  LayoutDashboard, UserPlus, Users, Layers, FileText, ClipboardList, Megaphone,
+  TrendingUp, Inbox, MessageSquare, Library, Pencil, LogOut, Loader2, ShieldAlert,
 } from "lucide-react";
 import { useAuth } from "@/components/AuthProvider";
 
@@ -20,6 +20,7 @@ const items = [
   { label: "Admissions", href: "/admin/admissions/", Icon: Inbox },
   { label: "Messages", href: "/admin/messages/", Icon: MessageSquare },
   { label: "Free Resources", href: "/admin/free-resources/", Icon: Library },
+  { label: "Edit Website", href: "/admin/content/", Icon: Pencil },
 ];
 
 export default function AdminLayout({ children }) {
@@ -76,4 +77,4 @@ export default function AdminLayout({ children }) {
       </div>
     </div>
   );
-                         }
+}
