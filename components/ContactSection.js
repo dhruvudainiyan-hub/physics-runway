@@ -1,10 +1,12 @@
+"use client";
 import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import ImageBox from "@/components/ImageBox";
-import { site } from "@/lib/siteData";
+import { useContent } from "@/lib/content";
 
 export default function ContactSection() {
+  const { site } = useContent();
   const rows = [
     { Icon: Phone, label: "Call us", value: site.phone },
     { Icon: Mail, label: "Email", value: site.email },
@@ -19,7 +21,7 @@ export default function ContactSection() {
             {rows.map(({ Icon, label, value }) => (
               <div key={label} className="flex items-start gap-4">
                 <span className="rounded-xl bg-brand-50 p-3 text-brand-600"><Icon className="h-5 w-5" /></span>
-                <div><p className="text-sm text-slate-500">{label}</p><p className="font-semibold text-navy-900">{value}</p></div>
+                <div className="min-w-0"><p className="text-sm text-slate-500">{label}</p><p className="break-words font-semibold text-navy-900">{value}</p></div>
               </div>
             ))}
           </div>
@@ -32,4 +34,4 @@ export default function ContactSection() {
       </div>
     </section>
   );
-            }
+}
