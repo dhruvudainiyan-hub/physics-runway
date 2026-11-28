@@ -4,12 +4,13 @@ import Link from "next/link";
 import { Phone, Mail, MapPin, Instagram, Youtube, Facebook, Loader2, CheckCircle2, Map } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import { supabase, supabaseReady } from "@/lib/supabase";
-import { site } from "@/lib/siteData";
+import { useContent, safeUrl, safeMapUrl } from "@/lib/content";
 
 const inputCls = "w-full min-w-0 rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-100";
 const empty = { name: "", phone: "", email: "", message: "", website: "" };
 
 export default function ContactPage() {
+  const { site } = useContent();
   const [f, setF] = useState(empty);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -24,7 +25,7 @@ export default function ContactPage() {
     if (!/^[6-9]\d{9}$/.test(f.phone)) return setError("Enter a valid 10-digit mobile number.");
     if (f.email && !/^\S+@\S+\.\S+$/.test(f.email)) return setError("Enter a valid email address, or leave it empty.");
     if (f.message.trim().length < 5) return setError("Please write a short message.");
-    if (f.website) { setSent(true); return; } // spam trap
+    if (f.website) { setSent(true); return; }
 
     try {
       const last = Number(localStorage.getItem("pr_last_msg") || 0);
@@ -48,10 +49,11 @@ export default function ContactPage() {
     { Icon: MapPin, label: "Visit us", value: site.address },
   ];
   const socials = [
-    { Icon: Instagram, href: site.social.instagram, label: "Follow us on Instagram" },
-    { Icon: Youtube, href: site.social.youtube, label: "Watch us on YouTube" },
-    { Icon: Facebook, href: site.social.facebook, label: "Like us on Facebook" },
-  ];
+    { Icon: Instagram, href: safeUrl(site.social?.instagram), label: "Follow us on Instagram" },
+    { Icon: Youtube, href: safeUrl(site.social?.youtube), label: "Watch us on YouTube" },
+    { Icon: Facebook, href: safeUrl(site.social?.facebook), label: "Like us on Facebook" },
+  ].filter((s) => s.href);
+  const mapUrl = safeMapUrl(site.mapEmbedUrl);
 
   return (
     <main>
@@ -79,8 +81,8 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {site.mapEmbedUrl ? (
-              <iframe src={site.mapEmbedUrl} title="Institute location" loading="lazy" className="h-72 w-full rounded-2xl border-0 shadow" referrerPolicy="no-referrer-when-downgrade" />
+            {mapUrl ? (
+              <iframe src={mapUrl} title="Institute location" loading="lazy" className="h-72 w-full rounded-2xl border-0 shadow" referrerPolicy="no-referrer-when-downgrade" />
             ) : (
               <div className="flex h-56 flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-brand-200 bg-brand-50 p-4 text-center text-brand-600">
                 <Map className="h-9 w-9 opacity-70" />
@@ -134,4 +136,4 @@ export default function ContactPage() {
       </section>
     </main>
   );
-                  }
+}
