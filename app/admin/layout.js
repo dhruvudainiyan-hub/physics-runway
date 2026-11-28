@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import {
   LayoutDashboard, UserPlus, Users, Layers, FileText, ClipboardList,
-  Megaphone, TrendingUp, Inbox, MessageSquare, LogOut, Loader2, ShieldAlert,
+  Megaphone, TrendingUp, Inbox, MessageSquare, Library, LogOut, Loader2, ShieldAlert,
 } from "lucide-react";
 import { useAuth } from "@/components/AuthProvider";
 
@@ -19,6 +19,7 @@ const items = [
   { label: "Test Results", href: "/admin/results/", Icon: TrendingUp },
   { label: "Admissions", href: "/admin/admissions/", Icon: Inbox },
   { label: "Messages", href: "/admin/messages/", Icon: MessageSquare },
+  { label: "Free Resources", href: "/admin/free-resources/", Icon: Library },
 ];
 
 export default function AdminLayout({ children }) {
