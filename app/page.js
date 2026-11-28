@@ -1,3 +1,4 @@
+"use client";
 import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
 import CourseCard from "@/components/CourseCard";
@@ -7,9 +8,10 @@ import FAQ from "@/components/FAQ";
 import ContactSection from "@/components/ContactSection";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
-import { courses, stats } from "@/lib/siteData";
+import { useContent } from "@/lib/content";
 
 export default function Home() {
+  const { courses, stats } = useContent();
   return (
     <main>
       <Hero />
@@ -17,8 +19,8 @@ export default function Home() {
       <section className="border-b border-slate-200 bg-white py-8">
         <div className="container-page">
           <div className="grid grid-cols-2 gap-6 text-center lg:grid-cols-4">
-            {stats.map((s) => (
-              <div key={s.label}>
+            {stats.map((s, i) => (
+              <div key={i}>
                 <CountUp value={s.value} className="font-heading text-3xl font-extrabold text-brand-600" />
                 <p className="text-sm text-slate-500">{s.label}</p>
               </div>
