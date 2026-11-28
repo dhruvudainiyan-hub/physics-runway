@@ -1,7 +1,8 @@
+"use client";
 import Link from "next/link";
 import { Instagram, Youtube, Facebook } from "lucide-react";
 import Logo from "@/components/Logo";
-import { site } from "@/lib/siteData";
+import { useContent, safeUrl } from "@/lib/content";
 
 const cols = [
   { title: "Courses", links: [["Class 10", "/courses/class-10/"], ["Class 11", "/courses/class-11/"], ["Class 12", "/courses/class-12/"]] },
@@ -9,13 +10,14 @@ const cols = [
   { title: "Students", links: [["Admission", "/admission/"], ["Student Login", "/login/"]] },
 ];
 
-const socials = [
-  { Icon: Instagram, href: site.social.instagram, label: "Follow us on Instagram" },
-  { Icon: Youtube, href: site.social.youtube, label: "Watch us on YouTube" },
-  { Icon: Facebook, href: site.social.facebook, label: "Like us on Facebook" },
-];
-
 export default function Footer() {
+  const { site } = useContent();
+  const socials = [
+    { Icon: Instagram, href: safeUrl(site.social?.instagram), label: "Follow us on Instagram" },
+    { Icon: Youtube, href: safeUrl(site.social?.youtube), label: "Watch us on YouTube" },
+    { Icon: Facebook, href: safeUrl(site.social?.facebook), label: "Like us on Facebook" },
+  ].filter((s) => s.href);
+
   return (
     <footer className="bg-navy-900 text-slate-300">
       <div className="container-page grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-5">
@@ -47,4 +49,4 @@ export default function Footer() {
       </div>
     </footer>
   );
-              }
+}
