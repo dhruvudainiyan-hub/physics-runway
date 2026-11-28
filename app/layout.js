@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { AuthProvider } from "@/components/AuthProvider";
+import { ContentProvider } from "@/lib/content";
 
 const heading = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-heading", weight: ["600", "700", "800"] });
 const body = Inter({ subsets: ["latin"], variable: "--font-body" });
@@ -19,9 +20,11 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${heading.variable} ${body.variable}`}>
       <body>
         <AuthProvider>
-          <Navbar />
-          {children}
-          <Footer />
+          <ContentProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </ContentProvider>
         </AuthProvider>
       </body>
     </html>
